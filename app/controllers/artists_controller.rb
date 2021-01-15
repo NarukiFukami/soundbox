@@ -1,17 +1,16 @@
 class ArtistsController < ApplicationController
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
   def index
-    @artists = Artist.all.by_new
+    @artists = Artist.all.by_new 
   end
 
   def show
-    # @work = Work.find(params[:id])
   end
 
   def create
     @artist = Artist.new(artist_params)
-    if @srtist.save
-      redirected_to artists_path
+    if @artist.save
+      redirect_to artists_path
     else
       render 'new'
     end
@@ -22,23 +21,22 @@ class ArtistsController < ApplicationController
   end
 
   def edit
-    # @work = Work.find(params[:id])
   end
 
   def update
     # @work = Work.find(params[:id])
     if @artist.update(artist_params)
-      redirected_to artist_path(@artist)
+      redirect_to artist_path(@artist)
     else
       render 'edit'
     end
   end
 
   def destroy
-    # @work = Work.find(params[:id])
     @artist.destroy
-    redirected_to artists_path
+    redirect_to artists_path
   end
+
 
   private
 
@@ -48,7 +46,9 @@ class ArtistsController < ApplicationController
 
   def artist_params
     params[:artist].permit(
-
+      :name,
+      :label,
+      :country,
     )
   end
 end

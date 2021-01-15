@@ -11,7 +11,7 @@ class WorksController < ApplicationController
   def create
     @work = Work.new(work_params)
     if @work.save
-      redirected_to works_path
+      redirect_to works_path
     else
       render 'new'
     end
@@ -28,7 +28,7 @@ class WorksController < ApplicationController
   def update
     # @work = Work.find(params[:id])
     if @work.update(work_params)
-      redirected_to work_path(@work)
+      redirect_to work_path(@work)
     else
       render 'edit'
     end
@@ -37,7 +37,7 @@ class WorksController < ApplicationController
   def destroy
     # @work = Work.find(params[:id])
     @work.destroy
-    redirected_to works_path
+    redirect_to works_path
   end
 
   private
@@ -48,7 +48,10 @@ class WorksController < ApplicationController
 
   def work_params
     params[:work].permit(
-
+      :title,
+      :release,
+      :song,
+      :description,
     )
   end
 end

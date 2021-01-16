@@ -19,6 +19,7 @@ class WorksController < ApplicationController
 
   def new
     @work = Work.new
+    @work.artist_id = parmas[:artist_id] if params[:artist_id]
   end
 
   def edit
@@ -52,6 +53,7 @@ class WorksController < ApplicationController
       :release,
       :song,
       :description,
+      :artist_id,
     )
   end
 end

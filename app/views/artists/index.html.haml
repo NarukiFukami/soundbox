@@ -1,7 +1,8 @@
-indexnnnn
-%br
--@artists.each do |artist|
-  =artist.name
-  =artist.label
-  =artist.country
+.container
+  indexnnnn
   %br
+
+.container
+  -@artists.each do |artist|
+    =link_to "#{artist.name}", artist_path(artist)
+    %br

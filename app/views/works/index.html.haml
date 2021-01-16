@@ -1,11 +1,9 @@
-wwwww
-%br
-
--@works.each do |work|
-  =work.title
-  =work.release
-  =work.song
-  =work.description
+.container
+  %h2 Index
   %br
-  
-=link_to 'back to index', works_path
+.container
+  -@works.each do |work|
+    =link_to "#{work.title}, #{work.release}, #{work.artist.name}", work_path(work)
+    %br
+
+  =link_to 'back to index', works_path

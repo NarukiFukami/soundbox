@@ -1,6 +1,7 @@
 =bootstrap_form_with model: @work, local: true do |f|
   =f.text_field :title
+  =f.collection_select :artist_id, Artist.all, :id, :name, include_blank: true, class: 'form-control '
   =f.text_field :release
   =f.text_field :song
   =f.text_field :description
-  =f.submit
+  =f.submit 'Add new album/single', class: "btn btn-primary"
